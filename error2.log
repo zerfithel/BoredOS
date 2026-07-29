@@ -1,0 +1,1604 @@
+core/main.c: In function 'init_input':
+core/main.c:623:18: warning: unused variable 'online' [-Wunused-variable]
+  623 |         uint32_t online = smp_init(smp_request.response);
+      |                  ^~~~~~
+dev/pci.c: In function 'pci_enumerate_devices':
+dev/pci.c:52:31: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+   52 |     for (uint8_t bus = 0; bus < 256 && count < max_devices; bus++) {
+      |                               ^
+dev/rtc.c: In function 'rtc_get_datetime':
+dev/rtc.c:33:13: warning: unused variable 'last_century' [-Wunused-variable]
+   33 |     uint8_t last_century;
+      |             ^~~~~~~~~~~~
+dev/rtc.c:26:13: warning: unused variable 'century' [-Wunused-variable]
+   26 |     uint8_t century;
+      |             ^~~~~~~
+dev/ahci.c: In function 'ahci_init':
+dev/ahci.c:499:14: warning: unused variable 'pi' [-Wunused-variable]
+  499 |     uint32_t pi = abar->pi;
+      |              ^~
+drivers/I2C/i2c_lpss.c: In function 'scan_pci_for_lpss_i2c':
+drivers/I2C/i2c_lpss.c:297:14: warning: unused variable 'tmp' [-Wunused-variable]
+  297 |         char tmp[3];
+      |              ^~~
+drivers/I2C/i2c_lpss.c: At top level:
+drivers/I2C/i2c_lpss.c:122:13: warning: 'lpss_write_packed' defined but not used [-Wunused-function]
+  122 | static void lpss_write_packed(uintptr_t base, uint32_t dw_offset, uint32_t val) {
+      |             ^~~~~~~~~~~~~~~~~
+drivers/I2C/i2c_lpss.c:114:17: warning: 'lpss_read_packed' defined but not used [-Wunused-function]
+  114 | static uint32_t lpss_read_packed(uintptr_t base, uint32_t dw_offset) {
+      |                 ^~~~~~~~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_open':
+fs/bootfs.c:130:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  130 | static void* bootfs_open(void *fs_private, const char *path, const char *mode) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_close':
+fs/bootfs.c:212:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  212 | static void bootfs_close(void *fs_private, void *handle) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_read':
+fs/bootfs.c:319:23: warning: comparison of integer expressions of different signedness: 'int' and 'uint32_t' {aka 'unsigned int'} [-Wsign-compare]
+  319 |         if (h->offset >= g_bootfs_state.initrd_size)
+      |                       ^~
+fs/bootfs.c:353:27: warning: comparison of integer expressions of different signedness: 'int' and 'uint32_t' {aka 'unsigned int'} [-Wsign-compare]
+  353 |             if (h->offset >= cf->size)
+      |                           ^~
+fs/bootfs.c: In function 'bootfs_seek':
+fs/bootfs.c:447:30: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  447 | static int bootfs_seek(void *fs_private, void *handle, int offset, int whence) {
+      |                        ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_readdir':
+fs/bootfs.c:473:33: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  473 | static int bootfs_readdir(void *fs_private, const char *rel_path, vfs_dirent_t *entries, int max, int offset) {
+      |                           ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_get_info':
+fs/bootfs.c:744:34: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  744 | static int bootfs_get_info(void *fs_private, const char *rel_path, vfs_dirent_t *info) {
+      |                            ~~~~~~^~~~~~~~~~
+drivers/I2C/i2c_lpss.c: In function 'scan_pci_for_lpss_i2c':
+drivers/I2C/i2c_lpss.c:270:20: warning: 'kernel_addr' may be used uninitialized [-Wmaybe-uninitialized]
+  270 |         ctrl->base = kernel_addr;
+      |         ~~~~~~~~~~~^~~~~~~~~~~~~
+drivers/I2C/i2c_lpss.c:262:19: note: 'kernel_addr' was declared here
+  262 |         uintptr_t kernel_addr;
+      |                   ^~~~~~~~~~~
+fs/mkfs_fat32.c:15:13: warning: 'mf_strncpy' defined but not used [-Wunused-function]
+   15 | static void mf_strncpy(char *dst, const char *src, int n) {
+      |             ^~~~~~~~~~
+fs/procfs.c: In function 'procfs_open':
+fs/procfs.c:18:25: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   18 | void* procfs_open(void *fs_private, const char *path, const char *mode) {
+      |                   ~~~~~~^~~~~~~~~~
+fs/procfs.c:18:67: warning: unused parameter 'mode' [-Wunused-parameter]
+   18 | void* procfs_open(void *fs_private, const char *path, const char *mode) {
+      |                                                       ~~~~~~~~~~~~^~~~
+fs/procfs.c: In function 'procfs_close':
+fs/procfs.c:53:25: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   53 | void procfs_close(void *fs_private, void *handle) {
+      |                   ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_read':
+fs/procfs.c:64:9: warning: the comparison will always evaluate as 'true' for the address of 'type' will never be NULL [-Waddress]
+   64 |     if (!h->type) return -1;
+      |         ^
+fs/procfs.c:13:10: note: 'type' declared here
+   13 |     char type[32];
+      |          ^~~~
+fs/procfs.c: In function 'procfs_readdir':
+fs/procfs.c:407:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  407 | int procfs_readdir(void *fs_private, const char *path, vfs_dirent_t *entries, int max, int offset) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_exists':
+fs/procfs.c:463:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  463 | bool procfs_exists(void *fs_private, const char *path) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_is_dir':
+fs/procfs.c:490:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  490 | bool procfs_is_dir(void *fs_private, const char *path) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_open':
+fs/sysfs.c:12:31: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   12 | static void* sysfs_open(void *fs_private, const char *path, const char *mode) {
+      |                         ~~~~~~^~~~~~~~~~
+fs/sysfs.c:12:73: warning: unused parameter 'mode' [-Wunused-parameter]
+   12 | static void* sysfs_open(void *fs_private, const char *path, const char *mode) {
+      |                                                             ~~~~~~~~~~~~^~~~
+fs/sysfs.c: In function 'sysfs_close':
+fs/sysfs.c:43:31: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   43 | static void sysfs_close(void *fs_private, void *handle) {
+      |                         ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_readdir':
+fs/sysfs.c:100:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  100 | static int sysfs_readdir(void *fs_private, const char *path, vfs_dirent_t *entries, int max, int offset) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_exists':
+fs/sysfs.c:178:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  178 | static bool sysfs_exists(void *fs_private, const char *path) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/fat32.c: In function 'realfs_read_file':
+fs/fat32.c:879:23: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  879 |     while (bytes_read < size && handle->position < handle->size) {
+      |                       ^
+fs/fat32.c: In function 'realfs_write_file':
+fs/fat32.c:1083:26: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 1083 |     while (bytes_written < size) {
+      |                          ^
+fs/fat32.c: In function 'realfs_delete_from_vol':
+fs/fat32.c:1180:14: warning: variable 'entry_offset' set but not used [-Wunused-but-set-variable]
+ 1180 |     uint32_t entry_offset = 0;
+      |              ^~~~~~~~~~~~
+fs/fat32.c:1179:14: warning: variable 'entry_sector' set but not used [-Wunused-but-set-variable]
+ 1179 |     uint32_t entry_sector = 0;
+      |              ^~~~~~~~~~~~
+fs/vfs.c: In function 'vfs_write':
+fs/vfs.c:695:17: warning: unused variable 'bytes_per_pixel' [-Wunused-variable]
+  695 |             int bytes_per_pixel = fb.bpp / 8;
+      |                 ^~~~~~~~~~~~~~~
+graphics/graphics.c: In function 'graphics_present_framebuffer':
+graphics/graphics.c:446:9: warning: unused variable 'fb_h' [-Wunused-variable]
+  446 |     int fb_h = (int)g_fb->height;
+      |         ^~~~
+mem/memory_manager.c: In function 'sort_block_list':
+mem/memory_manager.c:211:45: warning: operation on 'j' may be undefined [-Wsequence-point]
+  211 |             block_list[j + 1] = block_list[j--];
+      |                                            ~^~
+net/nic/rtl8111.c: In function 'rtl8111_init':
+net/nic/rtl8111.c:68:14: warning: unused variable 'bar2' [-Wunused-variable]
+   68 |     uint32_t bar2 = pci_read_config(pci_dev->bus, pci_dev->device, pci_dev->function, 0x18);
+      |              ^~~~
+net/third_party/lwip/core/pbuf.c:148:1: warning: 'pbuf_free_ooseq_callback' defined but not used [-Wunused-function]
+  148 | pbuf_free_ooseq_callback(void *arg)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+net/network.c: In function 'tcp_socket_recv_callback':
+net/network.c:623:66: warning: unused parameter 'tpcb' [-Wunused-parameter]
+  623 | static err_t tcp_socket_recv_callback(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err) {
+      |                                                  ~~~~~~~~~~~~~~~~^~~~
+sys/idt.c: In function 'exception_handler_c':
+sys/idt.c:59:16: warning: unused variable 'proc' [-Wunused-variable]
+   59 |     process_t *proc = process_get_current();
+      |                ^~~~
+sys/idt.c: In function 'pic_remap':
+sys/idt.c:187:17: warning: variable 'a2' set but not used [-Wunused-but-set-variable]
+  187 |     uint8_t a1, a2;
+      |                 ^~
+sys/idt.c:187:13: warning: variable 'a1' set but not used [-Wunused-but-set-variable]
+  187 |     uint8_t a1, a2;
+      |             ^~
+net/network.c: In function 'network_init':
+net/network.c:133:9: warning: 'ip.bytes[0]' may be used uninitialized [-Wmaybe-uninitialized]
+  133 |         itoa(ip.bytes[0], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[0]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:134:9: warning: 'ip.bytes[1]' may be used uninitialized [-Wmaybe-uninitialized]
+  134 |         itoa(ip.bytes[1], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[1]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:135:9: warning: 'ip.bytes[2]' may be used uninitialized [-Wmaybe-uninitialized]
+  135 |         itoa(ip.bytes[2], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[2]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:136:9: warning: 'ip.bytes[3]' may be used uninitialized [-Wmaybe-uninitialized]
+  136 |         itoa(ip.bytes[3], buf); serial_write(buf); serial_write("\n");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[3]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+sys/file_index.c: In function 'fuzzy_match_score':
+sys/file_index.c:39:19: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   39 |     if (query_idx < strlen(query)) {
+      |                   ^
+sys/file_index.c: In function 'index_walk_directory':
+sys/file_index.c:82:13: warning: the comparison will always evaluate as 'true' for the address of 'name' will never be NULL [-Waddress]
+   82 |         if (!entry->name || entry->name[0] == 0) {
+      |             ^
+In file included from sys/file_index.c:5:
+fs/vfs.h:37:10: note: 'name' declared here
+   37 |     char name[VFS_MAX_NAME];
+      |          ^~~~
+sys/syscall.c:1411:17: warning: 'sys_cmd_set_fs_base' defined but not used [-Wunused-function]
+ 1411 | static uint64_t sys_cmd_set_fs_base(const syscall_args_t *args) {
+      |                 ^~~~~~~~~~~~~~~~~~~
+sys/syscall.c:71:13: warning: 'smp_user_wrapper' defined but not used [-Wunused-function]
+   71 | static void smp_user_wrapper(void *arg) {
+      |             ^~~~~~~~~~~~~~~~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+src/clear.c: In function 'main':
+src/clear.c:8:14: warning: unused parameter 'argc' [-Wunused-parameter]
+    8 | int main(int argc, char **argv) {
+      |          ~~~~^~~~
+src/clear.c:8:27: warning: unused parameter 'argv' [-Wunused-parameter]
+    8 | int main(int argc, char **argv) {
+      |                    ~~~~~~~^~~~
+src/sysfetch.c: In function 'find_v':
+src/sysfetch.c:286:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  286 |             while (*p && *p != '\n') p++; if (*p == '\n') p++;
+      |             ^~~~~
+src/sysfetch.c:286:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  286 |             while (*p && *p != '\n') p++; if (*p == '\n') p++;
+      |                                           ^~
+src/sysfetch.c: In function 'find_s':
+src/sysfetch.c:301:13: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  301 |             while (*p && *p != '\n') p++; if (*p == '\n') p++;
+      |             ^~~~~
+src/sysfetch.c:301:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  301 |             while (*p && *p != '\n') p++; if (*p == '\n') p++;
+      |                                           ^~
+src/fdisk.c: In function 'print_partition_table':
+src/fdisk.c:135:14: warning: unused variable 'parent' [-Wunused-variable]
+  135 |         char parent[16];
+      |              ^~~~~~
+src/crash.c: In function 'main':
+src/crash.c:6:14: warning: unused parameter 'argc' [-Wunused-parameter]
+    6 | int main(int argc, char **argv) {
+      |          ~~~~^~~~
+src/crash.c:6:27: warning: unused parameter 'argv' [-Wunused-parameter]
+    6 | int main(int argc, char **argv) {
+      |                    ~~~~~~~^~~~
+src/fbtest.c: In function 'clear_framebuffer':
+src/fbtest.c:54:56: warning: unused parameter 'finfo' [-Wunused-parameter]
+   54 |                        const struct fb_fix_screeninfo *finfo) {
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+In file included from libnovaproto/novaproto.c:2:
+/home/user/.g/BoredOS/build/sdk/include/sys/socket.h:92:35: warning: 'struct mmsghdr' declared inside parameter list will not be visible outside of this definition or declaration
+   92 | int recvmmsg(int __sockfd, struct mmsghdr *__msgvec, unsigned int __vlen, int __flags, struct timespec *__timeout);
+      |                                   ^~~~~~~
+/home/user/.g/BoredOS/build/sdk/include/sys/socket.h:93:35: warning: 'struct mmsghdr' declared inside parameter list will not be visible outside of this definition or declaration
+   93 | int sendmmsg(int __sockfd, struct mmsghdr *__msgvec, unsigned int __vlen, int __flags);
+      |                                   ^~~~~~~
+ntk/ntk_combo.c: In function 'on_combo_popup_closed':
+ntk/ntk_combo.c:140:46: warning: unused parameter 'win' [-Wunused-parameter]
+  140 | static void on_combo_popup_closed(NtkWidget *win, void *userdata) {
+      |                                   ~~~~~~~~~~~^~~
+ntk/ntk_menu.c: In function 'menu_item_paint':
+ntk/ntk_menu.c:589:13: warning: unused variable 'iw' [-Wunused-variable]
+  589 |         int iw = ntk_pixmap_get_width(inst->icon);
+      |             ^~
+ntk/ntk_painter.c: In function 'ntk_painter_draw_bevel_raised':
+ntk/ntk_painter.c:702:74: warning: unused parameter 'light' [-Wunused-parameter]
+  702 | void ntk_painter_draw_bevel_raised(NtkPainter *p, NtkRect rect, NtkColor light, NtkColor dark) {
+      |                                                                 ~~~~~~~~~^~~~~
+ntk/ntk_painter.c:702:90: warning: unused parameter 'dark' [-Wunused-parameter]
+  702 | void ntk_painter_draw_bevel_raised(NtkPainter *p, NtkRect rect, NtkColor light, NtkColor dark) {
+      |                                                                                 ~~~~~~~~~^~~~
+ntk/ntk_painter.c: In function 'ntk_painter_draw_bevel_sunken':
+ntk/ntk_painter.c:730:74: warning: unused parameter 'light' [-Wunused-parameter]
+  730 | void ntk_painter_draw_bevel_sunken(NtkPainter *p, NtkRect rect, NtkColor light, NtkColor dark) {
+      |                                                                 ~~~~~~~~~^~~~~
+ntk/ntk_painter.c:730:90: warning: unused parameter 'dark' [-Wunused-parameter]
+  730 | void ntk_painter_draw_bevel_sunken(NtkPainter *p, NtkRect rect, NtkColor light, NtkColor dark) {
+      |                                                                                 ~~~~~~~~~^~~~
+ntk/ntk_splitter.c: In function 'splitter_handle_event':
+ntk/ntk_splitter.c:173:13: warning: unused variable 'geom' [-Wunused-variable]
+  173 |     NtkRect geom = ntk_widget_get_geometry(w);
+      |             ^~~~
+ntk/ntk_window.c: In function 'ntk_window_center_on_parent':
+ntk/ntk_window.c:315:28: warning: unused variable 'cinst' [-Wunused-variable]
+  315 |         NtkWindowInstance *cinst = ntk_widget_get_instance_data(w);
+      |                            ^~~~~
+ntk/ntk_window.c:314:28: warning: unused variable 'pinst' [-Wunused-variable]
+  314 |         NtkWindowInstance *pinst = ntk_widget_get_instance_data(parent);
+      |                            ^~~~~
+In file included from src/nova.c:15:
+/home/user/.g/BoredOS/build/sdk/include/sys/socket.h:92:35: warning: 'struct mmsghdr' declared inside parameter list will not be visible outside of this definition or declaration
+   92 | int recvmmsg(int __sockfd, struct mmsghdr *__msgvec, unsigned int __vlen, int __flags, struct timespec *__timeout);
+      |                                   ^~~~~~~
+/home/user/.g/BoredOS/build/sdk/include/sys/socket.h:93:35: warning: 'struct mmsghdr' declared inside parameter list will not be visible outside of this definition or declaration
+   93 | int sendmmsg(int __sockfd, struct mmsghdr *__msgvec, unsigned int __vlen, int __flags);
+      |                                   ^~~~~~~
+In file included from src/nova.c:18:
+/home/user/.g/BoredOS/build/sdk/include/sys/stat.h:22:30: warning: 'struct stat64' declared inside parameter list will not be visible outside of this definition or declaration
+   22 | int fstat64(int __fd, struct stat64 *__result);
+      |                              ^~~~~~
+/home/user/.g/BoredOS/build/sdk/include/sys/stat.h:26:55: warning: 'struct stat64' declared inside parameter list will not be visible outside of this definition or declaration
+   26 | int lstat64(const char *__restrict __pathname, struct stat64 *__restrict __buf);
+      |                                                       ^~~~~~
+src/nova.c:1787:13: warning: 'blit_surface_pixels' defined but not used [-Wunused-function]
+ 1787 | static void blit_surface_pixels(surface_t *surf, int dst_x, int dst_y, int copy_w, int copy_h) {
+      |             ^~~~~~~~~~~~~~~~~~~
+src/nova.c:1731:13: warning: 'translate_back_buffer_region' defined but not used [-Wunused-function]
+ 1731 | static void translate_back_buffer_region(int src_x, int src_y, int dst_x, int dst_y, int w, int h) {
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/nova.c:1212:12: warning: 'discard_socket_bytes' defined but not used [-Wunused-function]
+ 1212 | static int discard_socket_bytes(int fd, uint32_t size) {
+      |            ^~~~~~~~~~~~~~~~~~~~
+src/nova.c:168:13: warning: 'fill_rect_safe' defined but not used [-Wunused-function]
+  168 | static void fill_rect_safe(uint32_t *buffer, int w, int h, int rx, int ry, int rw, int rh, uint32_t color) {
+      |             ^~~~~~~~~~~~~~
+src/nova.c:105:13: warning: 'ui_draw_panel' defined but not used [-Wunused-function]
+  105 | static void ui_draw_panel(uint32_t *dest, int dest_w, int dest_h, int x, int y, int w, int h, uint32_t bg_color, int shadow, int border) {
+      |             ^~~~~~~~~~~~~
+src/nova.c:38:13: warning: 'ui_draw_string' defined but not used [-Wunused-function]
+   38 | static void ui_draw_string(uint32_t *dest, int dest_w, int dest_h, int x, int y, const char *text, uint32_t color) {
+      |             ^~~~~~~~~~~~~~
+src/taskbar.c:1255:12: warning: 'get_approx_char_width' defined but not used [-Wunused-function]
+ 1255 | static int get_approx_char_width(char c) {
+      |            ^~~~~~~~~~~~~~~~~~~~~
+src/taskbar.c:1235:12: warning: 'get_approx_string_width' defined but not used [-Wunused-function]
+ 1235 | static int get_approx_string_width(const char *str) {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+src/taskbar.c:1216:13: warning: 'search_append_utf8' defined but not used [-Wunused-function]
+ 1216 | static bool search_append_utf8(const char *text, uint8_t text_len) {
+      |             ^~~~~~~~~~~~~~~~~~
+src/taskbar.c:1204:13: warning: 'search_backspace_utf8' defined but not used [-Wunused-function]
+ 1204 | static void search_backspace_utf8(void) {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+src/taskbar.c:1189:13: warning: 'apply_filter' defined but not used [-Wunused-function]
+ 1189 | static void apply_filter(void) {
+      |             ^~~~~~~~~~~~
+src/taskbar.c:725:13: warning: 'format_datetime' defined but not used [-Wunused-function]
+  725 | static void format_datetime(char *out, size_t out_size, const char *fmt, const int dt[6]) {
+      |             ^~~~~~~~~~~~~~~
+src/taskbar.c:720:17: warning: 'lerp_channel' defined but not used [-Wunused-function]
+  720 | static uint32_t lerp_channel(uint32_t a, uint32_t b, int t, int denom) {
+      |                 ^~~~~~~~~~~~
+src/taskbar.c:88:17: warning: 'lerp_color' defined but not used [-Wunused-function]
+   88 | static uint32_t lerp_color(uint32_t c1, uint32_t c2, float t) {
+      |                 ^~~~~~~~~~
+src/installer.c:105:13: warning: 'g_error_message' defined but not used [-Wunused-variable]
+  105 | static char g_error_message[256] = {0};
+      |             ^~~~~~~~~~~~~~~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+x86_64-boredos-ld: warning: build/boredos.elf has a LOAD segment with RWX permissions
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+src/boredos_install.c: In function 'copy_file':
+src/boredos_install.c:295:39: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+  295 |         if (sys_write_fs(dfd, buf, n) != (uint32_t)n) {
+      |                                       ^~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+src/d_iwad.c: In function 'D_FindAllIWADs':
+src/d_iwad.c:769:16: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  769 |     for (i=0; i<arrlen(iwads); ++i)
+      |                ^
+src/d_iwad.c: In function 'D_SuggestIWADName':
+src/d_iwad.c:824:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  824 |     for (i = 0; i < arrlen(iwads); ++i)
+      |                   ^
+src/d_iwad.c: In function 'D_SuggestGameName':
+src/d_iwad.c:839:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  839 |     for (i = 0; i < arrlen(iwads); ++i)
+      |                   ^
+src/am_map.c: In function 'AM_initVariables':
+src/am_map.c:427:5: warning: missing initializer for field 'data4' of 'event_t' [-Wmissing-field-initializers]
+  427 |     static event_t st_notify = { ev_keyup, AM_MSGENTERED, 0, 0 };
+      |     ^~~~~~
+In file included from src/st_stuff.h:25,
+                 from src/am_map.c:27:
+src/d_event.h:67:30: note: 'data4' declared here
+   67 |     int data1, data2, data3, data4;
+      |                              ^~~~~
+src/am_map.c: In function 'AM_Stop':
+src/am_map.c:543:5: warning: missing initializer for field 'data4' of 'event_t' [-Wmissing-field-initializers]
+  543 |     static event_t st_notify = { 0, ev_keyup, AM_MSGEXITED, 0 };
+      |     ^~~~~~
+src/d_event.h:67:30: note: 'data4' declared here
+   67 |     int data1, data2, data3, data4;
+      |                              ^~~~~
+src/am_map.c: In function 'AM_drawThings':
+src/am_map.c:1293:9: warning: unused parameter 'colorrange' [-Wunused-parameter]
+ 1293 |   int   colorrange)
+      |   ~~~~~~^~~~~~~~~~
+src/d_loop.c: In function 'D_StartNetGame':
+src/d_loop.c:341:48: warning: unused parameter 'callback' [-Wunused-parameter]
+  341 |                     netgame_startup_callback_t callback)
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+src/d_loop.c: In function 'SinglePlayerClear':
+src/d_loop.c:695:15: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'int' [-Wsign-compare]
+  695 |         if (i != localplayer)
+      |               ^~
+src/d_main.c: In function 'SetMissionForPackName':
+src/d_main.c:699:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  699 |     for (i = 0; i < arrlen(packs); ++i)
+      |                   ^
+src/d_main.c:710:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  710 |     for (i = 0; i < arrlen(packs); ++i)
+      |                   ^
+src/d_mode.c: In function 'D_ValidGameMode':
+src/d_mode.c:54:16: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+   54 |     for (i=0; i<arrlen(valid_modes); ++i)
+      |                ^
+src/d_mode.c: In function 'D_ValidEpisodeMap':
+src/d_mode.c:86:16: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+   86 |     for (i=0; i<arrlen(valid_modes); ++i)
+      |                ^
+src/d_mode.c: In function 'D_ValidGameVersion':
+src/d_mode.c:147:16: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  147 |     for (i=0; i<arrlen(valid_versions); ++i)
+      |                ^
+src/d_net.c: In function 'LoadGameSettings':
+src/d_net.c:132:29: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'int' [-Wsign-compare]
+  132 |         playeringame[i] = i < settings->num_players;
+      |                             ^
+src/doomgeneric_nova.c:382:13: warning: 'draw_string' defined but not used [-Wunused-function]
+  382 | static void draw_string(uint32_t *pixels, int x, int y, const char *s, uint32_t color, int scale) {
+      |             ^~~~~~~~~~~
+src/doomgeneric_nova.c:351:13: warning: 'draw_rect' defined but not used [-Wunused-function]
+  351 | static void draw_rect(uint32_t *pixels, int x, int y, int w, int h, uint32_t color) {
+      |             ^~~~~~~~~
+src/f_wipe.c: In function 'wipe_initColorXForm':
+src/f_wipe.c:68:9: warning: unused parameter 'ticks' [-Wunused-parameter]
+   68 |   int   ticks )
+      |   ~~~~~~^~~~~
+src/f_wipe.c: In function 'wipe_exitColorXForm':
+src/f_wipe.c:122:9: warning: unused parameter 'width' [-Wunused-parameter]
+  122 | ( int   width,
+      |   ~~~~~~^~~~~
+src/f_wipe.c:123:9: warning: unused parameter 'height' [-Wunused-parameter]
+  123 |   int   height,
+      |   ~~~~~~^~~~~~
+src/f_wipe.c:124:9: warning: unused parameter 'ticks' [-Wunused-parameter]
+  124 |   int   ticks )
+      |   ~~~~~~^~~~~
+src/f_wipe.c: In function 'wipe_initMelt':
+src/f_wipe.c:136:9: warning: unused parameter 'ticks' [-Wunused-parameter]
+  136 |   int   ticks )
+      |   ~~~~~~^~~~~
+src/f_wipe.c: In function 'wipe_exitMelt':
+src/f_wipe.c:220:9: warning: unused parameter 'width' [-Wunused-parameter]
+  220 | ( int   width,
+      |   ~~~~~~^~~~~
+src/f_wipe.c:221:9: warning: unused parameter 'height' [-Wunused-parameter]
+  221 |   int   height,
+      |   ~~~~~~^~~~~~
+src/f_wipe.c:222:9: warning: unused parameter 'ticks' [-Wunused-parameter]
+  222 |   int   ticks )
+      |   ~~~~~~^~~~~
+src/f_wipe.c: In function 'wipe_StartScreen':
+src/f_wipe.c:232:9: warning: unused parameter 'x' [-Wunused-parameter]
+  232 | ( int   x,
+      |   ~~~~~~^
+src/f_wipe.c:233:9: warning: unused parameter 'y' [-Wunused-parameter]
+  233 |   int   y,
+      |   ~~~~~~^
+src/f_wipe.c:234:9: warning: unused parameter 'width' [-Wunused-parameter]
+  234 |   int   width,
+      |   ~~~~~~^~~~~
+src/f_wipe.c:235:9: warning: unused parameter 'height' [-Wunused-parameter]
+  235 |   int   height )
+      |   ~~~~~~^~~~~~
+src/f_wipe.c: In function 'wipe_ScreenWipe':
+src/f_wipe.c:258:9: warning: unused parameter 'x' [-Wunused-parameter]
+  258 |   int   x,
+      |   ~~~~~~^
+src/f_wipe.c:259:9: warning: unused parameter 'y' [-Wunused-parameter]
+  259 |   int   y,
+      |   ~~~~~~^
+src/g_game.c: In function 'G_NextWeapon':
+src/g_game.c:297:16: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  297 |     for (i=0; i<arrlen(weapon_order_table); ++i)
+      |                ^
+src/g_game.c: In function 'G_BuildTiccmd':
+src/g_game.c:458:20: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  458 |         for (i=0; i<arrlen(weapon_keys); ++i)
+      |                    ^
+src/g_game.c: In function 'G_WorldDone':
+src/g_game.c:1507:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1507 |             if (!secretexit)
+      |                ^
+src/g_game.c:1509:11: note: here
+ 1509 |           case 6:
+      |           ^~~~
+src/g_game.c: In function 'G_VanillaVersionCode':
+src/g_game.c:2045:13: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2045 |             I_Error("Doom 1.2 does not have a version code!");
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/g_game.c:2046:9: note: here
+ 2046 |         case exe_doom_1_666:
+      |         ^~~~
+src/i_cdmus.c: In function 'I_CDMusPlay':
+src/i_cdmus.c:107:21: warning: unused parameter 'track' [-Wunused-parameter]
+  107 | int I_CDMusPlay(int track)
+      |                 ~~~~^~~~~
+src/i_cdmus.c: In function 'I_CDMusSetVolume':
+src/i_cdmus.c:160:26: warning: unused parameter 'volume' [-Wunused-parameter]
+  160 | int I_CDMusSetVolume(int volume)
+      |                      ~~~~^~~~~~
+src/i_cdmus.c: In function 'I_CDMusTrackLength':
+src/i_cdmus.c:219:28: warning: unused parameter 'track_num' [-Wunused-parameter]
+  219 | int I_CDMusTrackLength(int track_num)
+      |                        ~~~~^~~~~~~~~
+src/icon.c:4:22: warning: 'icon_data' defined but not used [-Wunused-variable]
+    4 | static unsigned char icon_data[] = {
+      |                      ^~~~~~~~~
+src/icon.c:2:12: warning: 'icon_h' defined but not used [-Wunused-variable]
+    2 | static int icon_h = 32;
+      |            ^~~~~~
+src/icon.c:1:12: warning: 'icon_w' defined but not used [-Wunused-variable]
+    1 | static int icon_w = 32;
+      |            ^~~~~~
+src/i_endoom.c: In function 'I_Endoom':
+src/i_endoom.c:42:21: warning: unused parameter 'endoom_data' [-Wunused-parameter]
+   42 | void I_Endoom(byte *endoom_data)
+      |               ~~~~~~^~~~~~~~~~~
+src/i_input.c: In function 'GetTypedChar':
+src/i_input.c:250:17: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+  250 |         if (key >= 0 && key < arrlen(shiftxform))
+      |                 ^~
+src/i_input.c: At top level:
+src/i_input.c:51:19: warning: 'at_to_doom' defined but not used [-Wunused-const-variable=]
+   51 | static const char at_to_doom[] =
+      |                   ^~~~~~~~~~
+src/i_sound.c: In function 'I_BindSoundVariables':
+src/i_sound.c:398:18: warning: unused variable 'libsamplerate_scale' [-Wunused-variable]
+  398 |     extern float libsamplerate_scale;
+      |                  ^~~~~~~~~~~~~~~~~~~
+src/i_sound.c:397:16: warning: unused variable 'use_libsamplerate' [-Wunused-variable]
+  397 |     extern int use_libsamplerate;
+      |                ^~~~~~~~~~~~~~~~~
+src/i_system.c: In function 'I_Tactile':
+src/i_system.c:87:20: warning: unused parameter 'on' [-Wunused-parameter]
+   87 | void I_Tactile(int on, int off, int total)
+      |                ~~~~^~
+src/i_system.c:87:28: warning: unused parameter 'off' [-Wunused-parameter]
+   87 | void I_Tactile(int on, int off, int total)
+      |                        ~~~~^~~
+src/i_system.c:87:37: warning: unused parameter 'total' [-Wunused-parameter]
+   87 | void I_Tactile(int on, int off, int total)
+      |                                 ~~~~^~~~~
+src/i_timer.c: In function 'I_WaitVBL':
+src/i_timer.c:84:20: warning: unused parameter 'count' [-Wunused-parameter]
+   84 | void I_WaitVBL(int count)
+      |                ~~~~^~~~~
+src/i_video.c: In function 'I_InitGraphics':
+src/i_video.c:284:38: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  284 |         if (s_Fb.yres / SCREENHEIGHT < fb_scaling)
+      |                                      ^
+src/i_video.c: In function 'I_FinishUpdate':
+src/i_video.c:325:19: warning: variable 'y_offset' set but not used [-Wunused-but-set-variable]
+  325 |     int x_offset, y_offset, x_offset_end;
+      |                   ^~~~~~~~
+src/i_video.c: In function 'I_SetGrabMouseCallback':
+src/i_video.c:478:51: warning: unused parameter 'func' [-Wunused-parameter]
+  478 | void I_SetGrabMouseCallback (grabmouse_callback_t func)
+      |                              ~~~~~~~~~~~~~~~~~~~~~^~~~
+src/i_video.c: In function 'I_DisplayFPSDots':
+src/i_video.c:490:32: warning: unused parameter 'dots_on' [-Wunused-parameter]
+  490 | void I_DisplayFPSDots (boolean dots_on)
+      |                        ~~~~~~~~^~~~~~~
+src/i_video.c: At top level:
+src/i_video.c:26:1: warning: 'rcsid' defined but not used [-Wunused-const-variable=]
+   26 | rcsid[] = "$Id: i_x.c,v 1.6 1997/02/03 22:45:10 b1 Exp $";
+      | ^~~~~
+src/m_argv.c: In function 'LoadResponseFile':
+src/m_argv.c:75:34: warning: unused parameter 'argv_index' [-Wunused-parameter]
+   75 | static void LoadResponseFile(int argv_index)
+      |                              ~~~~^~~~~~~~~~
+src/m_config.c: In function 'SaveDefaultCollection':
+src/m_config.c:1609:57: warning: unused parameter 'collection' [-Wunused-parameter]
+ 1609 | static void SaveDefaultCollection(default_collection_t *collection)
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+src/m_config.c: In function 'LoadDefaultCollection':
+src/m_config.c:1771:57: warning: unused parameter 'collection' [-Wunused-parameter]
+ 1771 | static void LoadDefaultCollection(default_collection_t *collection)
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+src/m_config.c: In function 'M_GetSaveGameDir':
+src/m_config.c:2087:30: warning: unused parameter 'iwadname' [-Wunused-parameter]
+ 2087 | char *M_GetSaveGameDir(char *iwadname)
+      |                        ~~~~~~^~~~~~~~
+src/m_menu.c: In function 'M_LoadGame':
+src/m_menu.c:585:22: warning: unused parameter 'choice' [-Wunused-parameter]
+  585 | void M_LoadGame (int choice)
+      |                  ~~~~^~~~~~
+src/m_menu.c: In function 'M_SaveGame':
+src/m_menu.c:650:22: warning: unused parameter 'choice' [-Wunused-parameter]
+  650 | void M_SaveGame (int choice)
+      |                  ~~~~^~~~~~
+src/m_menu.c: In function 'M_Sound':
+src/m_menu.c:845:18: warning: unused parameter 'choice' [-Wunused-parameter]
+  845 | void M_Sound(int choice)
+      |              ~~~~^~~~~~
+src/m_menu.c: In function 'M_NewGame':
+src/m_menu.c:908:20: warning: unused parameter 'choice' [-Wunused-parameter]
+  908 | void M_NewGame(int choice)
+      |                ~~~~^~~~~~
+src/m_menu.c: In function 'M_VerifyNightmare':
+src/m_menu.c:940:22: warning: implicit conversion from 'enum <anonymous>' to 'skill_t' [-Wenum-conversion]
+  940 |     G_DeferedInitNew(nightmare,epi+1,1);
+      |                      ^~~~~~~~~
+src/m_menu.c: In function 'M_Options':
+src/m_menu.c:1007:20: warning: unused parameter 'choice' [-Wunused-parameter]
+ 1007 | void M_Options(int choice)
+      |                ~~~~^~~~~~
+src/m_menu.c: In function 'M_ChangeMessages':
+src/m_menu.c:1017:27: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1017 | void M_ChangeMessages(int choice)
+      |                       ~~~~^~~~~~
+src/m_menu.c: In function 'M_EndGame':
+src/m_menu.c:1045:20: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1045 | void M_EndGame(int choice)
+      |                ~~~~^~~~~~
+src/m_menu.c: In function 'M_ReadThis':
+src/m_menu.c:1069:21: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1069 | void M_ReadThis(int choice)
+      |                 ~~~~^~~~~~
+src/m_menu.c: In function 'M_ReadThis2':
+src/m_menu.c:1075:22: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1075 | void M_ReadThis2(int choice)
+      |                  ~~~~^~~~~~
+src/m_menu.c: In function 'M_FinishReadThis':
+src/m_menu.c:1093:27: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1093 | void M_FinishReadThis(int choice)
+      |                       ~~~~^~~~~~
+src/m_menu.c: In function 'M_QuitDOOM':
+src/m_menu.c:1168:21: warning: unused parameter 'choice' [-Wunused-parameter]
+ 1168 | void M_QuitDOOM(int choice)
+      |                 ~~~~^~~~~~
+src/m_menu.c: In function 'M_ChangeDetail':
+src/m_menu.c:1197:25: warning: parameter 'choice' set but not used [-Wunused-but-set-parameter]
+ 1197 | void M_ChangeDetail(int choice)
+      |                     ~~~~^~~~~~
+src/m_misc.c: In function 'M_vsnprintf':
+src/m_misc.c:498:30: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  498 |     if (result < 0 || result >= buf_len)
+      |                              ^~
+src/p_ceilng.c: In function 'T_MoveCeiling':
+src/p_ceilng.c:83:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   83 |                 S_StartSound(&ceiling->sector->soundorg, sfx_pstop);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/p_ceilng.c:84:15: note: here
+   84 |               case fastCrushAndRaise:
+      |               ^~~~
+src/p_ceilng.c:118:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  118 |                 S_StartSound(&ceiling->sector->soundorg, sfx_pstop);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/p_ceilng.c:119:15: note: here
+  119 |               case crushAndRaise:
+      |               ^~~~
+src/p_ceilng.c:120:32: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  120 |                 ceiling->speed = CEILSPEED;
+src/p_ceilng.c:121:15: note: here
+  121 |               case fastCrushAndRaise:
+      |               ^~~~
+src/p_ceilng.c: In function 'EV_DoCeiling':
+src/p_ceilng.c:212:32: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  212 |             ceiling->topheight = sec->ceilingheight;
+      |             ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+src/p_ceilng.c:213:11: note: here
+  213 |           case lowerAndCrush:
+      |           ^~~~
+src/p_doors.c: In function 'P_SpawnDoorRaiseIn5Mins':
+src/p_doors.c:544:17: warning: unused parameter 'secnum' [-Wunused-parameter]
+  544 |   int           secnum )
+      |   ~~~~~~~~~~~~~~^~~~~~
+src/p_enemy.c: In function 'A_OpenShotgun2':
+src/p_enemy.c:1778:17: warning: unused parameter 'psp' [-Wunused-parameter]
+ 1778 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_enemy.c: In function 'A_LoadShotgun2':
+src/p_enemy.c:1786:17: warning: unused parameter 'psp' [-Wunused-parameter]
+ 1786 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_enemy.c: In function 'A_BrainAwake':
+src/p_enemy.c:1811:28: warning: unused parameter 'mo' [-Wunused-parameter]
+ 1811 | void A_BrainAwake (mobj_t* mo)
+      |                    ~~~~~~~~^~
+src/p_enemy.c: In function 'A_BrainPain':
+src/p_enemy.c:1841:33: warning: unused parameter 'mo' [-Wunused-parameter]
+ 1841 | void A_BrainPain (mobj_t*       mo)
+      |                   ~~~~~~~~~~~~~~^~
+src/p_enemy.c: In function 'A_BrainDie':
+src/p_enemy.c:1894:33: warning: unused parameter 'mo' [-Wunused-parameter]
+ 1894 | void A_BrainDie (mobj_t*        mo)
+      |                  ~~~~~~~~~~~~~~~^~
+src/p_floor.c: In function 'EV_DoFloor':
+src/p_floor.c:309:26: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  309 |             floor->crush = true;
+      |                          ^
+src/p_floor.c:310:11: note: here
+  310 |           case raiseFloor:
+      |           ^~~~
+src/p_maputl.c: In function 'InterceptsOverrun':
+src/p_maputl.c:849:43: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  849 |     InterceptsMemoryOverrun(location + 8, (int) intercept->d.thing);
+      |                                           ^
+src/p_pspr.c: In function 'A_ReFire':
+src/p_pspr.c:336:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  336 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_CheckReload':
+src/p_pspr.c:359:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  359 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_GunFlash':
+src/p_pspr.c:442:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  442 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_Punch':
+src/p_pspr.c:461:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  461 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_Saw':
+src/p_pspr.c:495:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  495 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FireMissile':
+src/p_pspr.c:561:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  561 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FireBFG':
+src/p_pspr.c:574:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  574 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FirePlasma':
+src/p_pspr.c:589:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  589 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FirePistol':
+src/p_pspr.c:658:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  658 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FireShotgun':
+src/p_pspr.c:680:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  680 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_FireShotgun2':
+src/p_pspr.c:707:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  707 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_Light0':
+src/p_pspr.c:770:44: warning: unused parameter 'psp' [-Wunused-parameter]
+  770 | void A_Light0 (player_t *player, pspdef_t *psp)
+      |                                  ~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_Light1':
+src/p_pspr.c:775:44: warning: unused parameter 'psp' [-Wunused-parameter]
+  775 | void A_Light1 (player_t *player, pspdef_t *psp)
+      |                                  ~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_Light2':
+src/p_pspr.c:780:44: warning: unused parameter 'psp' [-Wunused-parameter]
+  780 | void A_Light2 (player_t *player, pspdef_t *psp)
+      |                                  ~~~~~~~~~~^~~
+src/p_pspr.c: In function 'A_BFGsound':
+src/p_pspr.c:829:17: warning: unused parameter 'psp' [-Wunused-parameter]
+  829 |   pspdef_t*     psp )
+      |   ~~~~~~~~~~~~~~^~~
+src/p_setup.c: In function 'P_SetupLevel':
+src/p_setup.c:747:17: warning: unused parameter 'playermask' [-Wunused-parameter]
+  747 |   int           playermask,
+      |   ~~~~~~~~~~~~~~^~~~~~~~~~
+src/p_setup.c:748:17: warning: unused parameter 'skill' [-Wunused-parameter]
+  748 |   skill_t       skill)
+      |   ~~~~~~~~~~~~~~^~~~~
+src/p_spec.c: In function 'DonutOverrun':
+src/p_spec.c:1179:34: warning: unused parameter 'line' [-Wunused-parameter]
+ 1179 |                          line_t *line, sector_t *pillar_sector)
+      |                          ~~~~~~~~^~~~
+src/p_spec.c:1179:50: warning: unused parameter 'pillar_sector' [-Wunused-parameter]
+ 1179 |                          line_t *line, sector_t *pillar_sector)
+      |                                        ~~~~~~~~~~^~~~~~~~~~~~~
+src/p_tick.c: In function 'P_AllocateThinker':
+src/p_tick.c:85:41: warning: unused parameter 'thinker' [-Wunused-parameter]
+   85 | void P_AllocateThinker (thinker_t*      thinker)
+      |                         ~~~~~~~~~~~~~~~~^~~~~~~
+src/r_things.c: In function 'R_DrawVisSprite':
+src/r_things.c:391:25: warning: unused parameter 'x1' [-Wunused-parameter]
+  391 |   int                   x1,
+      |   ~~~~~~~~~~~~~~~~~~~~~~^~
+src/r_things.c:392:25: warning: unused parameter 'x2' [-Wunused-parameter]
+  392 |   int                   x2 )
+      |   ~~~~~~~~~~~~~~~~~~~~~~^~
+src/r_things.c: In function 'R_SortVisSprites':
+src/r_things.c:803:27: warning: storing the address of local variable 'unsorted' in '*<unknown>.next' [-Wdangling-pointer=]
+  803 |     (vissprite_p-1)->next = &unsorted;
+      |     ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+src/r_things.c:785:25: note: 'unsorted' declared here
+  785 |     vissprite_t         unsorted;
+      |                         ^~~~~~~~
+src/r_things.c:282:17: note: 'vissprite_p' declared here
+  282 | vissprite_t*    vissprite_p;
+      |                 ^~~~~~~~~~~
+src/r_things.c:801:24: warning: storing the address of local variable 'unsorted' in 'vissprites[0].prev' [-Wdangling-pointer=]
+  801 |     vissprites[0].prev = &unsorted;
+      |     ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+src/r_things.c:785:25: note: 'unsorted' declared here
+  785 |     vissprite_t         unsorted;
+      |                         ^~~~~~~~
+src/r_things.c:281:17: note: 'vissprites' declared here
+  281 | vissprite_t     vissprites[MAXVISSPRITES];
+      |                 ^~~~~~~~~~
+src/statdump.c:39:18: warning: 'doom2_par_times' defined but not used [-Wunused-const-variable=]
+   39 | static const int doom2_par_times[] =
+      |                  ^~~~~~~~~~~~~~~
+src/statdump.c:33:18: warning: 'doom1_par_times' defined but not used [-Wunused-const-variable=]
+   33 | static const int doom1_par_times[] =
+      |                  ^~~~~~~~~~~~~~~
+src/st_lib.c: In function 'STlib_drawNum':
+src/st_lib.c:86:17: warning: unused parameter 'refresh' [-Wunused-parameter]
+   86 |   boolean       refresh )
+      |   ~~~~~~~~~~~~~~^~~~~~~
+src/w_file.c: In function 'W_OpenFile':
+src/w_file.c:72:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+   72 |     for (i = 0; i < arrlen(wad_file_classes); ++i)
+      |                   ^
+src/wi_stuff.c: In function 'WI_Responder':
+src/wi_stuff.c:409:31: warning: unused parameter 'ev' [-Wunused-parameter]
+  409 | boolean WI_Responder(event_t* ev)
+      |                      ~~~~~~~~~^~
+src/w_wad.c: In function 'ExtendLumpInfo':
+src/w_wad.c:102:35: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'int' [-Wsign-compare]
+  102 |     for (i = 0; i < numlumps && i < newnumlumps; ++i)
+      |                                   ^
+src/w_wad.c: In function 'W_CheckCorrectIWAD':
+src/w_wad.c:591:19: warning: comparison of integer expressions of different signedness: 'int' and 'long unsigned int' [-Wsign-compare]
+  591 |     for (i = 0; i < arrlen(unique_lumps); ++i)
+      |                   ^
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+src/arrays.c: In function 'tglMapBuffer':
+src/arrays.c:227:41: warning: unused parameter 'access' [-Wunused-parameter]
+  227 | void *glMapBuffer(GLenum target, GLenum access)
+      |                                  ~~~~~~~^~~~~~
+src/arrays.c: In function 'tglBufferData':
+src/arrays.c:255:73: warning: unused parameter 'usage' [-Wunused-parameter]
+  255 | void glBufferData(GLenum target, GLsizei size, const void *data, GLenum usage)
+      |                                                                  ~~~~~~~^~~~~
+src/arrays.c: In function 'tglColorPointer':
+src/arrays.c:467:28: warning: unused parameter 'type' [-Wunused-parameter]
+  467 |                     GLenum type,
+      |                     ~~~~~~~^~~~
+src/arrays.c: In function 'tglNormalPointer':
+src/arrays.c:493:29: warning: unused parameter 'type' [-Wunused-parameter]
+  493 | void glNormalPointer(GLenum type, GLsizei stride, const GLvoid *pointer)
+      |                      ~~~~~~~^~~~
+src/arrays.c: In function 'tglTexCoordPointer':
+src/arrays.c:520:31: warning: unused parameter 'type' [-Wunused-parameter]
+  520 |                        GLenum type,
+      |                        ~~~~~~~^~~~
+src/clip.c: In function 'gl_draw_triangle_select':
+src/clip.c:432:40: warning: unused parameter 'p0' [-Wunused-parameter]
+  432 | void gl_draw_triangle_select(GLVertex *p0, GLVertex *p1, GLVertex *p2)
+      |                              ~~~~~~~~~~^~
+src/clip.c:432:54: warning: unused parameter 'p1' [-Wunused-parameter]
+  432 | void gl_draw_triangle_select(GLVertex *p0, GLVertex *p1, GLVertex *p2)
+      |                                            ~~~~~~~~~~^~
+src/clip.c:432:68: warning: unused parameter 'p2' [-Wunused-parameter]
+  432 | void gl_draw_triangle_select(GLVertex *p0, GLVertex *p1, GLVertex *p2)
+      |                                                          ~~~~~~~~~~^~
+src/api.c: In function 'tglTexEnvi':
+src/api.c:649:22: warning: unused parameter 'target' [-Wunused-parameter]
+  649 | void glTexEnvi(GLint target, GLint pname, GLint param)
+      |                ~~~~~~^~~~~~
+src/api.c:649:36: warning: unused parameter 'pname' [-Wunused-parameter]
+  649 | void glTexEnvi(GLint target, GLint pname, GLint param)
+      |                              ~~~~~~^~~~~
+src/api.c:649:49: warning: unused parameter 'param' [-Wunused-parameter]
+  649 | void glTexEnvi(GLint target, GLint pname, GLint param)
+      |                                           ~~~~~~^~~~~
+src/api.c: In function 'tglTexParameteri':
+src/api.c:654:28: warning: unused parameter 'target' [-Wunused-parameter]
+  654 | void glTexParameteri(GLint target, GLint pname, GLint param)
+      |                      ~~~~~~^~~~~~
+src/api.c:654:42: warning: unused parameter 'pname' [-Wunused-parameter]
+  654 | void glTexParameteri(GLint target, GLint pname, GLint param)
+      |                                    ~~~~~~^~~~~
+src/api.c:654:55: warning: unused parameter 'param' [-Wunused-parameter]
+  654 | void glTexParameteri(GLint target, GLint pname, GLint param)
+      |                                                 ~~~~~~^~~~~
+src/api.c: In function 'tglHint':
+src/api.c:735:19: warning: unused parameter 'target' [-Wunused-parameter]
+  735 | void glHint(GLint target, GLint mode)
+      |             ~~~~~~^~~~~~
+src/api.c:735:33: warning: unused parameter 'mode' [-Wunused-parameter]
+  735 | void glHint(GLint target, GLint mode)
+      |                           ~~~~~~^~~~
+src/get.c: In function 'tglGetIntegerv':
+src/get.c:154:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  154 |         i++;
+      |         ~^~
+src/get.c:155:5: note: here
+  155 |     case GL_LIGHT14:
+      |     ^~~~
+src/get.c:156:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  156 |         i++;
+      |         ~^~
+src/get.c:157:5: note: here
+  157 |     case GL_LIGHT13:
+      |     ^~~~
+src/get.c:158:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  158 |         i++;
+      |         ~^~
+src/get.c:159:5: note: here
+  159 |     case GL_LIGHT12:
+      |     ^~~~
+src/get.c:160:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  160 |         i++;
+      |         ~^~
+src/get.c:161:5: note: here
+  161 |     case GL_LIGHT11:
+      |     ^~~~
+src/get.c:162:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  162 |         i++;
+      |         ~^~
+src/get.c:163:5: note: here
+  163 |     case GL_LIGHT10:
+      |     ^~~~
+src/get.c:164:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  164 |         i++;
+      |         ~^~
+src/get.c:165:5: note: here
+  165 |     case GL_LIGHT9:
+      |     ^~~~
+src/get.c:166:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  166 |         i++;
+      |         ~^~
+src/get.c:167:5: note: here
+  167 |     case GL_LIGHT8:
+      |     ^~~~
+src/get.c:168:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  168 |         i++;
+      |         ~^~
+src/get.c:169:5: note: here
+  169 |     case GL_LIGHT7:
+      |     ^~~~
+src/get.c:170:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  170 |         i++;
+      |         ~^~
+src/get.c:171:5: note: here
+  171 |     case GL_LIGHT6:
+      |     ^~~~
+src/get.c:172:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  172 |         i++;
+      |         ~^~
+src/get.c:173:5: note: here
+  173 |     case GL_LIGHT5:
+      |     ^~~~
+src/get.c:174:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  174 |         i++;
+      |         ~^~
+src/get.c:175:5: note: here
+  175 |     case GL_LIGHT4:
+      |     ^~~~
+src/get.c:176:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  176 |         i++;
+      |         ~^~
+src/get.c:177:5: note: here
+  177 |     case GL_LIGHT3:
+      |     ^~~~
+src/get.c:178:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  178 |         i++;
+      |         ~^~
+src/get.c:179:5: note: here
+  179 |     case GL_LIGHT2:
+      |     ^~~~
+src/get.c:180:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  180 |         i++;
+      |         ~^~
+src/get.c:181:5: note: here
+  181 |     case GL_LIGHT1:
+      |     ^~~~
+src/get.c:182:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  182 |         i++;
+      |         ~^~
+src/get.c:183:5: note: here
+  183 |     case GL_LIGHT0:
+      |     ^~~~
+src/get.c: In function 'tglGetFloatv':
+src/get.c:575:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  575 |         mnr++;
+      |         ~~~^~
+src/get.c:576:5: note: here
+  576 |     case GL_PROJECTION_MATRIX:
+      |     ^~~~
+src/get.c:577:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  577 |         mnr++;
+      |         ~~~^~
+src/get.c:578:5: note: here
+  578 |     case GL_MODELVIEW_MATRIX: {
+      |     ^~~~
+src/list.c: In function 'tglCallLists':
+src/list.c:81:36: warning: unused parameter 'type' [-Wunused-parameter]
+   81 | void glCallLists(GLsizei n, GLenum type, const GLuint *lists)
+      |                             ~~~~~~~^~~~
+src/list.c: In function 'glopEndList':
+src/list.c:133:27: warning: unused parameter 'p' [-Wunused-parameter]
+  133 | void glopEndList(GLParam *p)
+      |                  ~~~~~~~~~^
+src/list.c: In function 'glopNextBuffer':
+src/list.c:139:30: warning: unused parameter 'p' [-Wunused-parameter]
+  139 | void glopNextBuffer(GLParam *p)
+      |                     ~~~~~~~~~^
+src/matrix.c: In function 'glopLoadIdentity':
+src/matrix.c:53:32: warning: unused parameter 'p' [-Wunused-parameter]
+   53 | void glopLoadIdentity(GLParam *p)
+      |                       ~~~~~~~~~^
+src/matrix.c: In function 'glopPushMatrix':
+src/matrix.c:80:30: warning: unused parameter 'p' [-Wunused-parameter]
+   80 | void glopPushMatrix(GLParam *p)
+      |                     ~~~~~~~~~^
+src/matrix.c: In function 'glopPopMatrix':
+src/matrix.c:100:29: warning: unused parameter 'p' [-Wunused-parameter]
+  100 | void glopPopMatrix(GLParam *p)
+      |                    ~~~~~~~~~^
+src/misc.c: In function 'tglPolygonStipple':
+src/misc.c:9:29: warning: unused parameter 'a' [-Wunused-parameter]
+    9 | void glPolygonStipple(void *a)
+      |                       ~~~~~~^
+src/misc.c: In function 'tglReadPixels':
+src/misc.c:255:25: warning: unused parameter 'x' [-Wunused-parameter]
+  255 | void glReadPixels(GLint x,
+      |                   ~~~~~~^
+src/misc.c:256:25: warning: unused parameter 'y' [-Wunused-parameter]
+  256 |                   GLint y,
+      |                   ~~~~~~^
+src/misc.c:257:27: warning: unused parameter 'width' [-Wunused-parameter]
+  257 |                   GLsizei width,
+      |                   ~~~~~~~~^~~~~
+src/misc.c:258:27: warning: unused parameter 'height' [-Wunused-parameter]
+  258 |                   GLsizei height,
+      |                   ~~~~~~~~^~~~~~
+src/misc.c:261:25: warning: unused parameter 'data' [-Wunused-parameter]
+  261 |                   void *data)
+      |                   ~~~~~~^~~~
+src/select.c: In function 'tglRenderMode':
+src/select.c:3:26: warning: unused parameter 'mode' [-Wunused-parameter]
+    3 | GLint glRenderMode(GLint mode)
+      |                    ~~~~~~^~~~
+src/select.c: In function 'tglSelectBuffer':
+src/select.c:83:27: warning: unused parameter 'size' [-Wunused-parameter]
+   83 | void glSelectBuffer(GLint size, GLuint *buf)
+      |                     ~~~~~~^~~~
+src/select.c:83:41: warning: unused parameter 'buf' [-Wunused-parameter]
+   83 | void glSelectBuffer(GLint size, GLuint *buf)
+      |                                 ~~~~~~~~^~~
+src/select.c: In function 'tglFeedbackBuffer':
+src/select.c:103:29: warning: unused parameter 'size' [-Wunused-parameter]
+  103 | void glFeedbackBuffer(GLint size, GLenum type, GLfloat *buf)
+      |                       ~~~~~~^~~~
+src/select.c:103:42: warning: unused parameter 'type' [-Wunused-parameter]
+  103 | void glFeedbackBuffer(GLint size, GLenum type, GLfloat *buf)
+      |                                   ~~~~~~~^~~~
+src/select.c:103:57: warning: unused parameter 'buf' [-Wunused-parameter]
+  103 | void glFeedbackBuffer(GLint size, GLenum type, GLfloat *buf)
+      |                                                ~~~~~~~~~^~~
+src/select.c: In function 'gl_add_feedback':
+src/select.c:127:30: warning: unused parameter 'token' [-Wunused-parameter]
+  127 | void gl_add_feedback(GLfloat token,
+      |                      ~~~~~~~~^~~~~
+src/select.c:128:32: warning: unused parameter 'v1' [-Wunused-parameter]
+  128 |                      GLVertex *v1,
+      |                      ~~~~~~~~~~^~
+src/select.c:129:32: warning: unused parameter 'v2' [-Wunused-parameter]
+  129 |                      GLVertex *v2,
+      |                      ~~~~~~~~~~^~
+src/select.c:130:32: warning: unused parameter 'v3' [-Wunused-parameter]
+  130 |                      GLVertex *v3,
+      |                      ~~~~~~~~~~^~
+src/select.c:131:30: warning: unused parameter 'passthrough_token_value' [-Wunused-parameter]
+  131 |                      GLfloat passthrough_token_value)
+      |                      ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+src/select.c: In function 'glopInitNames':
+src/select.c:290:29: warning: unused parameter 'p' [-Wunused-parameter]
+  290 | void glopInitNames(GLParam *p)
+      |                    ~~~~~~~~~^
+src/select.c: In function 'glopPushName':
+src/select.c:301:28: warning: unused parameter 'p' [-Wunused-parameter]
+  301 | void glopPushName(GLParam *p)
+      |                   ~~~~~~~~~^
+src/select.c: In function 'glopPopName':
+src/select.c:312:27: warning: unused parameter 'p' [-Wunused-parameter]
+  312 | void glopPopName(GLParam *p)
+      |                  ~~~~~~~~~^
+src/select.c: In function 'glopLoadName':
+src/select.c:323:28: warning: unused parameter 'p' [-Wunused-parameter]
+  323 | void glopLoadName(GLParam *p)
+      |                   ~~~~~~~~~^
+src/select.c: In function 'gl_add_select':
+src/select.c:334:27: warning: unused parameter 'zmin' [-Wunused-parameter]
+  334 | void gl_add_select(GLuint zmin, GLuint zmax)
+      |                    ~~~~~~~^~~~
+src/select.c:334:40: warning: unused parameter 'zmax' [-Wunused-parameter]
+  334 | void gl_add_select(GLuint zmin, GLuint zmax)
+      |                                 ~~~~~~~^~~~
+src/vertex.c: In function 'glopEnd':
+src/vertex.c:398:23: warning: unused parameter 'param' [-Wunused-parameter]
+  398 | void glopEnd(GLParam *param)
+      |              ~~~~~~~~~^~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleFlat_DT0_DW0':
+src/ztriangle.c:88:25: warning: unused variable 'zz' [-Wunused-variable]
+   88 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:323:21: note: in expansion of macro 'PUT_PIXEL'
+  323 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:88:25: warning: unused variable 'zz' [-Wunused-variable]
+   88 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:324:21: note: in expansion of macro 'PUT_PIXEL'
+  324 |                     PUT_PIXEL(1); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:88:25: warning: unused variable 'zz' [-Wunused-variable]
+   88 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:325:21: note: in expansion of macro 'PUT_PIXEL'
+  325 |                     PUT_PIXEL(2); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:88:25: warning: unused variable 'zz' [-Wunused-variable]
+   88 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:326:21: note: in expansion of macro 'PUT_PIXEL'
+  326 |                     PUT_PIXEL(3); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:88:25: warning: unused variable 'zz' [-Wunused-variable]
+   88 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:335:21: note: in expansion of macro 'PUT_PIXEL'
+  335 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleFlatNOBLEND_DT0_DW0':
+src/ztriangle.c:250:25: warning: unused variable 'zz' [-Wunused-variable]
+  250 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:323:21: note: in expansion of macro 'PUT_PIXEL'
+  323 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:250:25: warning: unused variable 'zz' [-Wunused-variable]
+  250 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:324:21: note: in expansion of macro 'PUT_PIXEL'
+  324 |                     PUT_PIXEL(1); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:250:25: warning: unused variable 'zz' [-Wunused-variable]
+  250 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:325:21: note: in expansion of macro 'PUT_PIXEL'
+  325 |                     PUT_PIXEL(2); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:250:25: warning: unused variable 'zz' [-Wunused-variable]
+  250 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:326:21: note: in expansion of macro 'PUT_PIXEL'
+  326 |                     PUT_PIXEL(3); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:250:25: warning: unused variable 'zz' [-Wunused-variable]
+  250 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:335:21: note: in expansion of macro 'PUT_PIXEL'
+  335 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleSmooth_DT0_DW0':
+src/ztriangle.c:401:25: warning: unused variable 'zz' [-Wunused-variable]
+  401 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;  \
+      |                         ^~
+src/ztriangle.h:323:21: note: in expansion of macro 'PUT_PIXEL'
+  323 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:401:25: warning: unused variable 'zz' [-Wunused-variable]
+  401 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;  \
+      |                         ^~
+src/ztriangle.h:324:21: note: in expansion of macro 'PUT_PIXEL'
+  324 |                     PUT_PIXEL(1); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:401:25: warning: unused variable 'zz' [-Wunused-variable]
+  401 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;  \
+      |                         ^~
+src/ztriangle.h:325:21: note: in expansion of macro 'PUT_PIXEL'
+  325 |                     PUT_PIXEL(2); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:401:25: warning: unused variable 'zz' [-Wunused-variable]
+  401 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;  \
+      |                         ^~
+src/ztriangle.h:326:21: note: in expansion of macro 'PUT_PIXEL'
+  326 |                     PUT_PIXEL(3); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:401:25: warning: unused variable 'zz' [-Wunused-variable]
+  401 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;  \
+      |                         ^~
+src/ztriangle.h:335:21: note: in expansion of macro 'PUT_PIXEL'
+  335 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+In file included from glgears.c:13:
+/home/user/.g/BoredOS/build/sdk/include/sys/stat.h:22:30: warning: 'struct stat64' declared inside parameter list will not be visible outside of this definition or declaration
+   22 | int fstat64(int __fd, struct stat64 *__result);
+      |                              ^~~~~~
+/home/user/.g/BoredOS/build/sdk/include/sys/stat.h:26:55: warning: 'struct stat64' declared inside parameter list will not be visible outside of this definition or declaration
+   26 | int lstat64(const char *__restrict __pathname, struct stat64 *__restrict __buf);
+      |                                                       ^~~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleSmoothNOBLEND_DT0_DW0':
+src/ztriangle.c:564:25: warning: unused variable 'zz' [-Wunused-variable]
+  564 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:323:21: note: in expansion of macro 'PUT_PIXEL'
+  323 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:564:25: warning: unused variable 'zz' [-Wunused-variable]
+  564 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:324:21: note: in expansion of macro 'PUT_PIXEL'
+  324 |                     PUT_PIXEL(1); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:564:25: warning: unused variable 'zz' [-Wunused-variable]
+  564 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:325:21: note: in expansion of macro 'PUT_PIXEL'
+  325 |                     PUT_PIXEL(2); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:564:25: warning: unused variable 'zz' [-Wunused-variable]
+  564 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:326:21: note: in expansion of macro 'PUT_PIXEL'
+  326 |                     PUT_PIXEL(3); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.c:564:25: warning: unused variable 'zz' [-Wunused-variable]
+  564 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS; \
+      |                         ^~
+src/ztriangle.h:335:21: note: in expansion of macro 'PUT_PIXEL'
+  335 |                     PUT_PIXEL(0); /*the_x++;*/
+      |                     ^~~~~~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleMappingPerspective_DT0_DW0':
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:750:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  750 |             PUT_PIXEL_TEXTURED(0, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:751:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  751 |             PUT_PIXEL_TEXTURED(1, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:752:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  752 |             PUT_PIXEL_TEXTURED(2, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:753:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  753 |             PUT_PIXEL_TEXTURED(3, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:754:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  754 |             PUT_PIXEL_TEXTURED(4, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:755:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  755 |             PUT_PIXEL_TEXTURED(5, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:756:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  756 |             PUT_PIXEL_TEXTURED(6, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:757:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  757 |             PUT_PIXEL_TEXTURED(7, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:824:25: warning: unused variable 'zz' [-Wunused-variable]
+  824 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                       \
+      |                         ^~
+src/ztriangle.c:776:17: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  776 |                 PUT_PIXEL_TEXTURED(0, DEPTH_TEST, DEPTH_WRITE_OP) \
+      |                 ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:838:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+  838 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.h: In function 'ZB_fillTriangleMappingPerspectiveNOBLEND_DT0_DW0':
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:750:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  750 |             PUT_PIXEL_TEXTURED(0, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:751:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  751 |             PUT_PIXEL_TEXTURED(1, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:752:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  752 |             PUT_PIXEL_TEXTURED(2, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:753:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  753 |             PUT_PIXEL_TEXTURED(3, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:754:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  754 |             PUT_PIXEL_TEXTURED(4, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:755:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  755 |             PUT_PIXEL_TEXTURED(5, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:756:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  756 |             PUT_PIXEL_TEXTURED(6, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:757:13: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  757 |             PUT_PIXEL_TEXTURED(7, DEPTH_TEST, DEPTH_WRITE_OP)     \
+      |             ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+src/ztriangle.c:1047:25: warning: unused variable 'zz' [-Wunused-variable]
+ 1047 |         register GLuint zz = z >> ZB_POINT_Z_FRAC_BITS;                     \
+      |                         ^~
+src/ztriangle.c:776:17: note: in expansion of macro 'PUT_PIXEL_TEXTURED'
+  776 |                 PUT_PIXEL_TEXTURED(0, DEPTH_TEST, DEPTH_WRITE_OP) \
+      |                 ^~~~~~~~~~~~~~~~~~
+src/ztriangle.c:1060:9: note: in expansion of macro 'DRAW_LINE_TRI_TEXTURED'
+ 1060 |         DRAW_LINE_TRI_TEXTURED(0, /* no-op */;) \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+src/ztriangle.h:346:13: note: in expansion of macro 'DRAW_LINE'
+  346 |             DRAW_LINE();
+      |             ^~~~~~~~~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+src/main.c: In function 'copy_file':
+src/main.c:90:39: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   90 |         if (sys_write_fs(dfd, buf, n) != (uint32_t)n) {
+      |                                       ^~
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: warning: /home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/crtend.o: missing .note.GNU-stack section implies executable stack
+/home/user/Apps/boredos-toolchain/bin/../lib/gcc/x86_64-boredos/14.2.0/../../../../x86_64-boredos/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+Read : 0 MiB   ==> 36.34%                                                                                  Compressed 645120 bytes into 234451 bytes ==> 36.34%
+Read : 0 MiB   ==> 45.28%                                                                                  Compressed 921600 bytes into 417270 bytes ==> 45.28%
+Read : 0 MiB   ==> inf%                                                                                  Compressed 5570560 bytes into 3962936 bytes ==> 71.14%
+Read : 0 MiB   ==> inf%                                                                                  Compressed 6615040 bytes into 2966315 bytes ==> 44.84%
+Read : 1 MiB   ==> 48.33%                                                                                  Compressed 1075200 bytes into 519663 bytes ==> 48.33%
+Read : 0 MiB   ==> inf%                                                                                  Compressed 17367040 bytes into 16517575 bytes ==> 95.11%
+Read : 0 MiB   ==> 32.03%                                                                                  Compressed 727040 bytes into 232879 bytes ==> 32.03%
+Read : 0 MiB   ==> 47.36%                                                                                  Compressed 1013760 bytes into 480083 bytes ==> 47.36%
+Read : 3 MiB   ==> 39.31%                                                                                  Compressed 3430400 bytes into 1348388 bytes ==> 39.31%
+Read : 1 MiB   ==> 36.35%                                                                                  Compressed 1413120 bytes into 513662 bytes ==> 36.35%
+Read : 1 MiB   ==> 58.41%                                                                                  Compressed 1628160 bytes into 950964 bytes ==> 58.41%
+Read : 8 MiB   ==> 115.01%   Read : 80 MiB   ==> 55.09%                                                                                  Compressed 107233280 bytes into 64771469 bytes ==> 60.40%
+GNU xorriso 1.5.6.pl02 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:boredos.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  158g free
+Added to ISO image: directory '/'='/home/user/.g/BoredOS/iso_root'
+xorriso : UPDATE :      11 files added in 1 seconds
+xorriso : UPDATE :      11 files added in 1 seconds
+xorriso : UPDATE :  57.61% done
+ISO image produced: 35079 sectors
+Written to medium : 35079 sectors at LBA 0
+Writing to 'stdio:boredos.iso' completed successfully.
+
+Physical block size of 512 bytes.
+Installing to GPT. Logical block size of 512 bytes.
+Secondary header at LBA 0x2241b.
+Secondary header valid.
+Detected ISOHYBRID with a GUID partition table (GPT).
+Converting to MBR for improved compatibility...
+Conversion successful.
+No active partition found, some systems may not boot.
+Setting partition 1 as active to work around the issue...
+Installing to MBR.
+Stage 2 to be located at byte offset 0x200.
+Reminder: Remember to copy the limine-bios.sys file in either
+          the root, /boot, /limine, or /boot/limine directories of
+          one of the partitions on the device, or boot will fail!
+Limine BIOS stages installed successfully.

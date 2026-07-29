@@ -1,0 +1,276 @@
+core/main.c: In function 'init_input':
+core/main.c:623:18: warning: unused variable 'online' [-Wunused-variable]
+  623 |         uint32_t online = smp_init(smp_request.response);
+      |                  ^~~~~~
+dev/pci.c: In function 'pci_enumerate_devices':
+dev/pci.c:52:31: warning: comparison is always true due to limited range of data type [-Wtype-limits]
+   52 |     for (uint8_t bus = 0; bus < 256 && count < max_devices; bus++) {
+      |                               ^
+dev/rtc.c: In function 'rtc_get_datetime':
+dev/rtc.c:33:13: warning: unused variable 'last_century' [-Wunused-variable]
+   33 |     uint8_t last_century;
+      |             ^~~~~~~~~~~~
+dev/rtc.c:26:13: warning: unused variable 'century' [-Wunused-variable]
+   26 |     uint8_t century;
+      |             ^~~~~~~
+dev/ahci.c: In function 'ahci_init':
+dev/ahci.c:499:14: warning: unused variable 'pi' [-Wunused-variable]
+  499 |     uint32_t pi = abar->pi;
+      |              ^~
+drivers/I2C/i2c_lpss.c: In function 'scan_pci_for_lpss_i2c':
+drivers/I2C/i2c_lpss.c:297:14: warning: unused variable 'tmp' [-Wunused-variable]
+  297 |         char tmp[3];
+      |              ^~~
+drivers/I2C/i2c_lpss.c: At top level:
+drivers/I2C/i2c_lpss.c:122:13: warning: 'lpss_write_packed' defined but not used [-Wunused-function]
+  122 | static void lpss_write_packed(uintptr_t base, uint32_t dw_offset, uint32_t val) {
+      |             ^~~~~~~~~~~~~~~~~
+drivers/I2C/i2c_lpss.c:114:17: warning: 'lpss_read_packed' defined but not used [-Wunused-function]
+  114 | static uint32_t lpss_read_packed(uintptr_t base, uint32_t dw_offset) {
+      |                 ^~~~~~~~~~~~~~~~
+drivers/I2C/i2c_lpss.c: In function 'scan_pci_for_lpss_i2c':
+drivers/I2C/i2c_lpss.c:270:20: warning: 'kernel_addr' may be used uninitialized [-Wmaybe-uninitialized]
+  270 |         ctrl->base = kernel_addr;
+      |         ~~~~~~~~~~~^~~~~~~~~~~~~
+drivers/I2C/i2c_lpss.c:262:19: note: 'kernel_addr' was declared here
+  262 |         uintptr_t kernel_addr;
+      |                   ^~~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_open':
+fs/bootfs.c:130:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  130 | static void* bootfs_open(void *fs_private, const char *path, const char *mode) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_close':
+fs/bootfs.c:212:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  212 | static void bootfs_close(void *fs_private, void *handle) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_read':
+fs/bootfs.c:319:23: warning: comparison of integer expressions of different signedness: 'int' and 'uint32_t' {aka 'unsigned int'} [-Wsign-compare]
+  319 |         if (h->offset >= g_bootfs_state.initrd_size)
+      |                       ^~
+fs/bootfs.c:353:27: warning: comparison of integer expressions of different signedness: 'int' and 'uint32_t' {aka 'unsigned int'} [-Wsign-compare]
+  353 |             if (h->offset >= cf->size)
+      |                           ^~
+fs/bootfs.c: In function 'bootfs_seek':
+fs/bootfs.c:447:30: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  447 | static int bootfs_seek(void *fs_private, void *handle, int offset, int whence) {
+      |                        ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_readdir':
+fs/bootfs.c:473:33: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  473 | static int bootfs_readdir(void *fs_private, const char *rel_path, vfs_dirent_t *entries, int max, int offset) {
+      |                           ~~~~~~^~~~~~~~~~
+fs/bootfs.c: In function 'bootfs_get_info':
+fs/bootfs.c:744:34: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  744 | static int bootfs_get_info(void *fs_private, const char *rel_path, vfs_dirent_t *info) {
+      |                            ~~~~~~^~~~~~~~~~
+fs/mkfs_fat32.c:15:13: warning: 'mf_strncpy' defined but not used [-Wunused-function]
+   15 | static void mf_strncpy(char *dst, const char *src, int n) {
+      |             ^~~~~~~~~~
+fs/procfs.c: In function 'procfs_open':
+fs/procfs.c:18:25: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   18 | void* procfs_open(void *fs_private, const char *path, const char *mode) {
+      |                   ~~~~~~^~~~~~~~~~
+fs/procfs.c:18:67: warning: unused parameter 'mode' [-Wunused-parameter]
+   18 | void* procfs_open(void *fs_private, const char *path, const char *mode) {
+      |                                                       ~~~~~~~~~~~~^~~~
+fs/procfs.c: In function 'procfs_close':
+fs/procfs.c:53:25: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   53 | void procfs_close(void *fs_private, void *handle) {
+      |                   ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_read':
+fs/procfs.c:64:9: warning: the comparison will always evaluate as 'true' for the address of 'type' will never be NULL [-Waddress]
+   64 |     if (!h->type) return -1;
+      |         ^
+fs/procfs.c:13:10: note: 'type' declared here
+   13 |     char type[32];
+      |          ^~~~
+fs/procfs.c: In function 'procfs_readdir':
+fs/procfs.c:407:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  407 | int procfs_readdir(void *fs_private, const char *path, vfs_dirent_t *entries, int max, int offset) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_exists':
+fs/procfs.c:463:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  463 | bool procfs_exists(void *fs_private, const char *path) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/procfs.c: In function 'procfs_is_dir':
+fs/procfs.c:490:26: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  490 | bool procfs_is_dir(void *fs_private, const char *path) {
+      |                    ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_open':
+fs/sysfs.c:12:31: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   12 | static void* sysfs_open(void *fs_private, const char *path, const char *mode) {
+      |                         ~~~~~~^~~~~~~~~~
+fs/sysfs.c:12:73: warning: unused parameter 'mode' [-Wunused-parameter]
+   12 | static void* sysfs_open(void *fs_private, const char *path, const char *mode) {
+      |                                                             ~~~~~~~~~~~~^~~~
+fs/sysfs.c: In function 'sysfs_close':
+fs/sysfs.c:43:31: warning: unused parameter 'fs_private' [-Wunused-parameter]
+   43 | static void sysfs_close(void *fs_private, void *handle) {
+      |                         ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_readdir':
+fs/sysfs.c:100:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  100 | static int sysfs_readdir(void *fs_private, const char *path, vfs_dirent_t *entries, int max, int offset) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/sysfs.c: In function 'sysfs_exists':
+fs/sysfs.c:178:32: warning: unused parameter 'fs_private' [-Wunused-parameter]
+  178 | static bool sysfs_exists(void *fs_private, const char *path) {
+      |                          ~~~~~~^~~~~~~~~~
+fs/fat32.c: In function 'realfs_read_file':
+fs/fat32.c:879:23: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+  879 |     while (bytes_read < size && handle->position < handle->size) {
+      |                       ^
+fs/fat32.c: In function 'realfs_write_file':
+fs/fat32.c:1083:26: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+ 1083 |     while (bytes_written < size) {
+      |                          ^
+fs/fat32.c: In function 'realfs_delete_from_vol':
+fs/fat32.c:1180:14: warning: variable 'entry_offset' set but not used [-Wunused-but-set-variable]
+ 1180 |     uint32_t entry_offset = 0;
+      |              ^~~~~~~~~~~~
+fs/fat32.c:1179:14: warning: variable 'entry_sector' set but not used [-Wunused-but-set-variable]
+ 1179 |     uint32_t entry_sector = 0;
+      |              ^~~~~~~~~~~~
+fs/vfs.c: In function 'vfs_write':
+fs/vfs.c:695:17: warning: unused variable 'bytes_per_pixel' [-Wunused-variable]
+  695 |             int bytes_per_pixel = fb.bpp / 8;
+      |                 ^~~~~~~~~~~~~~~
+graphics/graphics.c: In function 'graphics_present_framebuffer':
+graphics/graphics.c:446:9: warning: unused variable 'fb_h' [-Wunused-variable]
+  446 |     int fb_h = (int)g_fb->height;
+      |         ^~~~
+mem/memory_manager.c: In function 'sort_block_list':
+mem/memory_manager.c:211:45: warning: operation on 'j' may be undefined [-Wsequence-point]
+  211 |             block_list[j + 1] = block_list[j--];
+      |                                            ~^~
+net/nic/rtl8111.c: In function 'rtl8111_init':
+net/nic/rtl8111.c:68:14: warning: unused variable 'bar2' [-Wunused-variable]
+   68 |     uint32_t bar2 = pci_read_config(pci_dev->bus, pci_dev->device, pci_dev->function, 0x18);
+      |              ^~~~
+net/third_party/lwip/core/pbuf.c:148:1: warning: 'pbuf_free_ooseq_callback' defined but not used [-Wunused-function]
+  148 | pbuf_free_ooseq_callback(void *arg)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+net/network.c: In function 'tcp_socket_recv_callback':
+net/network.c:623:66: warning: unused parameter 'tpcb' [-Wunused-parameter]
+  623 | static err_t tcp_socket_recv_callback(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err) {
+      |                                                  ~~~~~~~~~~~~~~~~^~~~
+sys/idt.c: In function 'exception_handler_c':
+sys/idt.c:59:16: warning: unused variable 'proc' [-Wunused-variable]
+   59 |     process_t *proc = process_get_current();
+      |                ^~~~
+sys/idt.c: In function 'pic_remap':
+sys/idt.c:187:17: warning: variable 'a2' set but not used [-Wunused-but-set-variable]
+  187 |     uint8_t a1, a2;
+      |                 ^~
+sys/idt.c:187:13: warning: variable 'a1' set but not used [-Wunused-but-set-variable]
+  187 |     uint8_t a1, a2;
+      |             ^~
+net/network.c: In function 'network_init':
+net/network.c:133:9: warning: 'ip.bytes[0]' may be used uninitialized [-Wmaybe-uninitialized]
+  133 |         itoa(ip.bytes[0], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[0]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:134:9: warning: 'ip.bytes[1]' may be used uninitialized [-Wmaybe-uninitialized]
+  134 |         itoa(ip.bytes[1], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[1]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:135:9: warning: 'ip.bytes[2]' may be used uninitialized [-Wmaybe-uninitialized]
+  135 |         itoa(ip.bytes[2], buf); serial_write(buf); serial_write(".");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[2]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+net/network.c:136:9: warning: 'ip.bytes[3]' may be used uninitialized [-Wmaybe-uninitialized]
+  136 |         itoa(ip.bytes[3], buf); serial_write(buf); serial_write("\n");
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+net/network.c:128:24: note: 'ip.bytes[3]' was declared here
+  128 |         ipv4_address_t ip;
+      |                        ^~
+sys/file_index.c: In function 'fuzzy_match_score':
+sys/file_index.c:39:19: warning: comparison of integer expressions of different signedness: 'int' and 'size_t' {aka 'long unsigned int'} [-Wsign-compare]
+   39 |     if (query_idx < strlen(query)) {
+      |                   ^
+sys/file_index.c: In function 'index_walk_directory':
+sys/file_index.c:82:13: warning: the comparison will always evaluate as 'true' for the address of 'name' will never be NULL [-Waddress]
+   82 |         if (!entry->name || entry->name[0] == 0) {
+      |             ^
+In file included from sys/file_index.c:5:
+fs/vfs.h:37:10: note: 'name' declared here
+   37 |     char name[VFS_MAX_NAME];
+      |          ^~~~
+sys/syscall.c:2912:6: error: 'SYS_TTY_CREATE' undeclared here (not in a function)
+ 2912 |     [SYS_TTY_CREATE] = handle_sys_tty_create,
+      |      ^~~~~~~~~~~~~~
+sys/syscall.c:2912:6: error: array index in initializer not of integer type
+sys/syscall.c:2912:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2913:6: error: 'SYS_TTY_READ_OUT' undeclared here (not in a function)
+ 2913 |     [SYS_TTY_READ_OUT] = handle_sys_tty_read_out,
+      |      ^~~~~~~~~~~~~~~~
+sys/syscall.c:2913:6: error: array index in initializer not of integer type
+sys/syscall.c:2913:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2914:6: error: 'SYS_TTY_WRITE_IN' undeclared here (not in a function)
+ 2914 |     [SYS_TTY_WRITE_IN] = handle_sys_tty_write_in,
+      |      ^~~~~~~~~~~~~~~~
+sys/syscall.c:2914:6: error: array index in initializer not of integer type
+sys/syscall.c:2914:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2915:6: error: 'SYS_TTY_READ_IN' undeclared here (not in a function)
+ 2915 |     [SYS_TTY_READ_IN] = handle_sys_tty_read_in,
+      |      ^~~~~~~~~~~~~~~
+sys/syscall.c:2915:6: error: array index in initializer not of integer type
+sys/syscall.c:2915:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2916:6: error: 'SYS_TTY_DESTROY' undeclared here (not in a function)
+ 2916 |     [SYS_TTY_DESTROY] = handle_sys_tty_destroy,
+      |      ^~~~~~~~~~~~~~~
+sys/syscall.c:2916:6: error: array index in initializer not of integer type
+sys/syscall.c:2916:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2917:6: error: 'SYS_TTY_SET_FG' undeclared here (not in a function)
+ 2917 |     [SYS_TTY_SET_FG] = handle_sys_tty_set_fg,
+      |      ^~~~~~~~~~~~~~
+sys/syscall.c:2917:6: error: array index in initializer not of integer type
+sys/syscall.c:2917:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2918:6: error: 'SYS_TTY_GET_FG' undeclared here (not in a function)
+ 2918 |     [SYS_TTY_GET_FG] = handle_sys_tty_get_fg,
+      |      ^~~~~~~~~~~~~~
+sys/syscall.c:2918:6: error: array index in initializer not of integer type
+sys/syscall.c:2918:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2919:6: error: 'SYS_TTY_KILL_FG' undeclared here (not in a function)
+ 2919 |     [SYS_TTY_KILL_FG] = handle_sys_tty_kill_fg,
+      |      ^~~~~~~~~~~~~~~
+sys/syscall.c:2919:6: error: array index in initializer not of integer type
+sys/syscall.c:2919:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2920:6: error: 'SYS_TTY_KILL_ALL' undeclared here (not in a function)
+ 2920 |     [SYS_TTY_KILL_ALL] = handle_sys_tty_kill_all,
+      |      ^~~~~~~~~~~~~~~~
+sys/syscall.c:2920:6: error: array index in initializer not of integer type
+sys/syscall.c:2920:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2921:6: error: 'SYS_TTY_GET_ID' undeclared here (not in a function); did you mean 'SYS_GETTID'?
+ 2921 |     [SYS_TTY_GET_ID] = handle_sys_tty_get_id,
+      |      ^~~~~~~~~~~~~~
+      |      SYS_GETTID
+sys/syscall.c:2921:6: error: array index in initializer not of integer type
+sys/syscall.c:2921:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2923:6: error: 'SYS_PTY_CREATE' undeclared here (not in a function)
+ 2923 |     [SYS_PTY_CREATE] = handle_sys_pty_create,
+      |      ^~~~~~~~~~~~~~
+sys/syscall.c:2923:6: error: array index in initializer not of integer type
+sys/syscall.c:2923:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2924:6: error: 'SYS_PTY_DESTROY' undeclared here (not in a function)
+ 2924 |     [SYS_PTY_DESTROY] = handle_sys_pty_destroy,
+      |      ^~~~~~~~~~~~~~~
+sys/syscall.c:2924:6: error: array index in initializer not of integer type
+sys/syscall.c:2924:6: note: (near initialization for 'syscall_table')
+sys/syscall.c:2935:24: warning: initialized field overwritten [-Woverride-init]
+ 2935 |     [SYS_SET_REAPER] = handle_sys_set_reaper,
+      |                        ^~~~~~~~~~~~~~~~~~~~~
+sys/syscall.c:2935:24: note: (near initialization for 'syscall_table[318]')
+sys/syscall.c:1411:17: warning: 'sys_cmd_set_fs_base' defined but not used [-Wunused-function]
+ 1411 | static uint64_t sys_cmd_set_fs_base(const syscall_args_t *args) {
+      |                 ^~~~~~~~~~~~~~~~~~~
+sys/syscall.c:71:13: warning: 'smp_user_wrapper' defined but not used [-Wunused-function]
+   71 | static void smp_user_wrapper(void *arg) {
+      |             ^~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:133: build/sys/syscall.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:106: all] Error 2

@@ -434,7 +434,7 @@ run-hd-mac: disk.qcow2 $(OVMF_VARS)
 run-linux: $(ISO_IMAGE) disk.qcow2
 	$(call PRINT_STEP,RUNNING BOREDOS IN QEMU ON LINUX)
 	qemu-system-x86_64 -m 4G -serial stdio -cdrom $< -boot d \
-	    -smp 4 \
+	    -smp 1 \
 		-audiodev pa,id=audio0 -machine pcspk-audiodev=audio0 \
 		-device AC97,audiodev=audio0 \
 		-vga std -global VGA.xres=1920 -global VGA.yres=1080 \
